@@ -8,8 +8,8 @@ flowchart TD
     D -->|Yes| E["deret taylor <br> dari suatu f(x)"]
     E --> F["n += 1"]
     F --> G["e = abs(eksak-sum)"]
-    G --> H["output : summ, n, e"]
+    G --> H["output : hasil_numerik, hasil_analitik, n, e"]
     G --> D
-    D -->|No| H(["output : summ, n, e"])
+    D -->|No| H(["output : hasil_numerik, hasil_analitik, n, e"])
     H --> Z([END])
 ```
