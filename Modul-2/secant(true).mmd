@@ -1,0 +1,20 @@
+flowchart TD
+    A([Main])
+    A --> B[/Output Secant/]
+    B -->DA@{shape: subproc, label: "def(fungsi)" }
+    DA -->Eid1@{shape: rect, label: Input x0; Input x1; Input E; Input max iter}
+    Eid1 -->Hid2@{shape: hex, label: iterasi <= max_iter}
+    Hid2 -->|Done| Z([End])
+    Hid2 -->|Next| JA@{ shape: rect, label: "x olah = x0 - ((x0-x1)*fungsi(x0)/(fungsi(x0)-fungsi(x1)))" }
+    JA --> KA@{ shape: diamond, label: "abs(fungsi(x1) - fungsi(x0)) < e" }
+    KA -->|true| LA@{ shape: rect, label: "print (Dekomposisi gagal: pembagian dengan nol.)" }
+    LA --> LL@{ shape: rect, label: "Brake" }
+    KA -->|elif| LB@{ shape: diamond, label: "abs(fungsi(x_olah)) < e"}
+    LB --> LC@{shape: rect, label: "print(fAkar ditemukan: {x_olah} setelah {iterasi} iterasi)"}
+    LC --> LK@{ shape: rect, label: "Brake" }
+    LL --> NN@{ shape: f-circ, label: "Junction" }
+    LK --> NN@{ shape: f-circ, label: "Junction" }
+    LB -->|else| LV@{shape: rect, label: print("Metode Secant gagal mencapai toleransi dalam jumlah iterasi maksimum.")}
+    LV --> NN@{ shape: f-circ, label: "Junction" }
+    NN --> JJ@{shape: rect, label: "x0 = x1; x1 = x_olah; iterasi += 1"}
+    JJ --> Hid2
