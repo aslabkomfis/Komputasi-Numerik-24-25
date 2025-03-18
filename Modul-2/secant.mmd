@@ -1,0 +1,18 @@
+flowchart TD
+    A([Main])
+    A --> B[/Output Secant/]
+    B -->DA@{shape: subproc, label: "def(fungsi)" }
+    DA -->Eid1@{shape: rect, label: Input x0; Input x1; Input E; Input max iter}
+    Eid1 -->Hid2@{shape: rect, label: iterasi = 1 to maxiter}
+    Hid2 -------->|Done| Z([End])
+    Hid2 -->|Next| JA@{ shape: rect, label: "x olah = x0 - ((x0-x1)*fungsi(x0)/(fungsi(x0)-fungsi(x1)))" }
+    JA --> KA@{ shape: diamond, label: "abs(fungsi(x olah)) < E" }
+    KA -->|true| LA@{ shape: rect, label: "hasil = x olah" }
+    LA --> M[/Output hampiran_akar x olah/]
+    M --> N[/Output iterasi/]
+    KA -->|false| LB@{ shape: rect, label: "x0 = x1"}
+    LB --> LC@{shape: rect, label: "x0 = x olah"}
+    N --> Break
+    Break --> NN@{ shape: f-circ, label: "Junction" }
+    LC --> NN@{ shape: f-circ, label: "Junction" }
+    NN --> Hid2
