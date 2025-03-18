@@ -1,1 +1,13 @@
-
+graph TD;
+    A([Mulai]) --> B["Def f(x) 
+    Def f'(x)"]
+    B --> C[/"Input x0 dan e"/]
+    C --> D{{e > error input}}
+    D -- No --> K[Cetak Hasil Akar dan Galat]
+    K --> L([Selesai])
+    D -- Yes --> E["Hitung f(x0)"]
+    E --> F["newrap = x0 - f(x0) / f'(x0)"]
+    F --> G["e = |newrap - x0|"]
+    G --> H[x0 = newrap]
+    H --> I[Cetak x0 dan e]
+    I --> D
