@@ -7,7 +7,7 @@ flowchart TD;
     E --> C
     Z --> G{{"(b-a)/2 > tol AND iter < maxIter"}}
     G -->H["c = b + f(b)(b-a)/(f(a)-f(b))"]
-    H --> I{"f(c) = 0"}
+    H --> I{"|f(c)| < 0"}
     I -->|YES| J["PRINT solusi adalah c"]
     I -->|NO| K{"f(a)f(c) < 0"} 
     K --> |YES| L["b = c"]
