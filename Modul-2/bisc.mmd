@@ -1,0 +1,22 @@
+graph TD;
+    A[Mulai] --> B["Input batas awal (a) dan batas akhir (b)"]
+    B --> C{"f(a) * f(b) > 0 ?"}
+    C -- Ya --> D["Input ulang batas awal (a) dan batas akhir (b)"]
+    D --> C
+    C -- Tidak --> E[Inisialisasi n = 0, e = 1.0]
+    E --> F{e > 0.0001 ?}
+    
+    F -- Tidak --> G[Cetak hasil akar aproksimasi]
+    G --> H[Selesai]
+    
+    F -- Ya --> I["Hitung xMid = (xA + xB) / 2"]
+    I --> J[Tingkatkan iterasi n += 1]
+    J --> K["Hitung error e = (xB - xA) / 2"]
+    K --> L[Cetak error]
+    
+    L --> M{"f(xA) * f(xMid) < 0 ?"}
+    M -- Ya --> N[Atur xB = xMid]
+    M -- Tidak --> O[Atur xA = xMid]
+    
+    N --> F
+    O --> F
