@@ -3,7 +3,8 @@ title: Metode SOR
 ---
 
 flowchart TD;
-    Z["w : faktor relaksasi 0<w<2, Matriks A : Matriks Koefisien dari SPL, Matriks B : Matriks solusi dari SPL, C : Matriks kosong dengan ukuran matriks B"] 
+    Z["w : faktor relaksasi 0<w<2"]
+    ZZ["Matriks A : Matriks Koefisien dari SPL"]
 
     A[Start] --> B["Inisialisasi: matriks A, matriks B, matriks C, e = 1, n = length(C), iter = 0"] 
     B --> X["Def sor(A,B,C,w,tol)"]
