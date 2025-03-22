@@ -1,0 +1,21 @@
+---
+title: Metode Jacobi    
+---
+
+flowchart TD;
+    A[Start] --> B["Inisialisasi: matriks A, matriks B, matriks C, e = 1, n = length(C), iter = 0"] 
+
+    Z@{ shape: braces, label: "Matriks A : Matriks Koefisien dari SPL, Matriks B : Matriks solusi dari SPL, C : Matriks kosong dengan ukuran matriks B" } 
+    B --> C{{"e > 0"}}
+    C --> D["solutionMatrix = [ ]"]
+    C --> F@{shape: notch-pent, label: "i in 0 to n"}
+    F --> G["summ = 0"]
+    F --> H["j in 0 to n"]
+    H --> I{"if j not i"}
+    I --> J["summ += A[i][j] * C[j]"]
+    F --> K["x = (B[i] - summ)/A[i,i]"]
+    K --> L["solutionMatris add x"]
+    L --> M["e = max(C)-max(solutionMatrix)"]
+    M --> N["C = solutionMatrix"]
+    N --> O["iter += 1"]
+    B --> P["result : iter, C"]
