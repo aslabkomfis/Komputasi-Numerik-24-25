@@ -1,0 +1,23 @@
+---
+title: Metode SOR
+---
+
+flowchart TD;
+    Z@{ shape: braces, label: "w : faktor relaksasi 0<w<2, Matriks A : Matriks Koefisien dari SPL, Matriks B : Matriks solusi dari SPL, C : Matriks kosong dengan ukuran matriks B" } 
+
+    A[Start] --> B["Inisialisasi: matriks A, matriks B, matriks C, e = 1, n = length(C), iter = 0"] 
+    B --> X["Def sor(A,B,C,w,tol)"]
+    X --> C{{"e > tol"}}
+    C --> D["solutionMatrix = [ ]"]
+    C --> E@{shape: notch-pent, label: "i in 0 to n"}
+    E --> F["summ1 = 0"]
+    E --> G["summ2 = 0"]
+    E --> H["j in 0 to i"]
+    H --> I["summ1 += A[i,j]*solutionMatrix[j]"]
+    H --> K["summ2 += A[i,j]*C[j]"]
+    C --> L["x = (1-w)* C[i] + w*(B[i] - summ1 - summ2)/A[i,i]"]
+    L --> M["solutionMatrix add x"]
+    M --> N["e = max(C)-max(solutionMatrix)"]
+    N --> P["C = solutionMatrix"]
+    P --> Q["iter += 1"]
+    X --> R["result iter, C"]
