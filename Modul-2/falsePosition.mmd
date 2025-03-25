@@ -1,14 +1,21 @@
 flowchart TD;
-    A[start] --> B["Inisialisasi:f(x), a = nilai batas awal, b = nilai batas akhir,tol = nilai toleransi, maxIter = maksimum iterasi, iter = 0"]
-    B --> Z["Def falsePosition"]
-    Z --> C{{"f(a)f(b) > 0"}}
-    C --> D["PRINT: error, a,b terlalu besar"]
-    Z --> G{{"e > 0.0001"}}
-    G -->H["c = (f(b)a - f(a)b)/(f(b)-f(a))"]
-    H --> I{"|f(c)| < 0.0001"}
-    I -->|YES| J["break"]
-    I -->|NO| K{"f(a)f(c) < 0"} 
-    K --> |YES| L["b = c"]
-    K --> |NO| M["a = c"]
-    G --> N["iter += 1"]
-    Z --> X["return c, iter, e"]
+    A[Start] --> B["Inisialisasi: a = batas awal, b = batas akhir, tol = toleransi, maxIter = maksimum iterasi, iter = 0, e = ∞"]
+    B --> C["Def falsePosition(a, b, f, tol, maxIter)"]
+    C --> D{{"f(a) * f(b) > 0"}}
+    D --> |YES| E["PRINT: 'Interval tidak valid!'"]
+    E --> F["RETURN None, 0"]
+    D --> |NO| G["Iterasi dimulai"]
+    
+    G --> H{{"e > tol AND iter < maxIter"}}
+    H --> |NO| X["RETURN c, iter"]
+    H --> |YES| I["c = (f(b) * a - f(a) * b) / (f(b) - f(a))"]
+    I --> J["e = |b - c|"]
+    J --> K["iter += 1"]
+    K --> L{{"|f(c)| < tol"}}
+    L --> |YES| X["RETURN c, iter"]
+    L --> |NO| M{{"f(a) * f(c) < 0"}}
+    M --> |YES| N["b = c"]
+    M --> |NO| O["a = c"]
+    N --> P["PRINT: Iterasi, c, error"]
+    O --> P
+    P --> H
