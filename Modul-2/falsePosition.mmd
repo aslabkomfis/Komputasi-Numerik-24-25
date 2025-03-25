@@ -5,7 +5,7 @@ flowchart TD;
     C --> D["PRINT: error, a,b terlalu besar"]
     Z --> G{{"e > 0.0001"}}
     G -->H["c = (f(b)a - f(a)b)/(f(b)-f(a))"]
-    H --> I{"|f(c)| < 0"}
+    H --> I{"|f(c)| < 0.0001"}
     I -->|YES| J["break"]
     I -->|NO| K{"f(a)f(c) < 0"} 
     K --> |YES| L["b = c"]
