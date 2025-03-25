@@ -3,12 +3,10 @@ flowchart TD;
     B --> Z["Def falsePosition"]
     Z --> C{{"f(a)f(b) > 0"}}
     C --> D["PRINT: error, a,b terlalu besar"]
-    D --> E["a: input kembali nilai awal, b: input kembali nilai akhir"]
-    E --> C
     Z --> G{{"e > 0.0001"}}
     G -->H["c = (f(b)a - f(a)b)/(f(b)-f(a))"]
     H --> I{"|f(c)| < 0"}
-    I -->|YES| J["PRINT solusi adalah c"]
+    I -->|YES| J["break"]
     I -->|NO| K{"f(a)f(c) < 0"} 
     K --> |YES| L["b = c"]
     K --> |NO| M["a = c"]
