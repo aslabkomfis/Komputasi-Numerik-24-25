@@ -15,7 +15,7 @@ flowchart TD;
     I --> J["summ += A[i][j] * C[j]"]
     F --> K["x = (B[i] - summ)/A[i,i]"]
     K --> L["solutionMatris add x"]
-    L --> M["e = max(C)-max(solutionMatrix)"]
+    C --> M["e = max(C)-max(solutionMatrix)"]
     M --> N["C = solutionMatrix"]
     N --> O["iter += 1"]
     X --> P["result : iter, C"]
