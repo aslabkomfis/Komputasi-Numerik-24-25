@@ -13,7 +13,7 @@ flowchart TD;
     F --> H["j in 0 to n"]
     H --> I{"if j not i"}
     I --> J["summ += A[i][j] * C[j]"]
-    C --> K["x = (B[i] - summ)/A[i,i]"]
+    F --> K["x = (B[i] - summ)/A[i,i]"]
     K --> L["solutionMatris add x"]
     L --> M["e = max(C)-max(solutionMatrix)"]
     M --> N["C = solutionMatrix"]
