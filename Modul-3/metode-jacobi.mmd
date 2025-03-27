@@ -6,7 +6,7 @@ flowchart TD;
     Z["Matriks A : Matriks Koefisien dari SPL, Matriks B : Matriks solusi dari SPL, C : Matriks kosong dengan ukuran matriks B"]
     A[Start] --> B["Inisialisasi: matriks A, matriks B, matriks C, e = 1, n = length(C), iter = 0"] 
     B --> X["jacobi(A,B,C,tol)"]
-    X --> C{{"e > 0"}}
+    X --> C{{"e > tol"}}
     C --> D["solutionMatrix = [ ]"]
     C --> F@{shape: notch-pent, label: "i in 0 to n"}
     F --> G["summ = 0"]
