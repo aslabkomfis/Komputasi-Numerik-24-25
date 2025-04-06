@@ -1,15 +1,15 @@
 graph TD;
         A([Start]) --> B["Input matriks A"]
-        B --> C[Input vektor awal x0]
-        C --> D[Input toleransi]
-        D --> E[Inisialisasi: e = 1, eigen_lama = 1, iterasi = 0]
-        E --> F{e > toleransi?}
-        F -- Yes --> G[y = A * x0]
-        G --> H[eigen_baru = norm.y]
-        H --> I[x = y / eigen_baru]
-        I --> J[e = (eigen_lama - eigen_baru)/eigen_lama]
-        J --> K[Update: iterasi += 1, eigen_lama = eigen_baru]
+        B --> C["Input vektor awal x0"]
+        C --> D["Input toleransi"]
+        D --> E["Inisialisasi: e = 1, eigen_lama = 1, iterasi = 0"]
+        E --> F{"e > toleransi?"}
+        F -- Yes --> G["y = A * x0"]
+        G --> H["eigen_baru = norm.y"]
+        H --> I["x = y / eigen_baru"]
+        I --> J["e = (eigen_lama - eigen_baru)/eigen_lama"]
+        J --> K["iterasi += 1, eigen_lama = eigen_baru"]
         K --> F
-        F -- No --> L[Output: Nilai Eigen = eigen_baru]
-        L --> M[Output: Vektor Eigen = x]
-        M --> N[End]
+        F -- No --> L["Output: Nilai Eigen = eigen_baru"]
+        L --> M["Output: Vektor Eigen = x"]
+        M --> N([End])
