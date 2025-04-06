@@ -1,17 +1,18 @@
 graph TD
-  A([Mulai]) --> B{"Input toleransi"}
-  B --> C["Cek determinan matriks A"]
-  C -->|det ≠ 0| D["Hitung invers B = inv(A)"]
-  C -->|det = 0| Z["Print "Matriks tidak dapat diinverskan""]
-  D --> E["Inisialisasi x0, e, eigen_lama, iterasi"]
-  E --> F{"e > toleransi?"}
-  F -- Yes --> G["Hitung y = B * x0"]
-  G --> H["Hitung eigen_baru = max(y)"]
-  H --> I["Hitung x = y / eigen_baru"]
-  I --> J["Hitung e = |(eigen_lama - eigen_baru) / eigen_lama|"]
-  J --> K["iterasi += 1"]
-  K --> L["Update eigen_lama = eigen_baru"]
-  L --> F
-  F -- No --> M["Hitung nilai_eigen = 1 / eigen_baru"]
-  M --> N["Print Nilai Eigen dan vektor x"]
-  N --> O([Selesai])
+  A([Mulai]) --> B["Input matriks A"]
+  B --> C["Input vektor awal x0"]
+  C --> D["Input toleransi"]
+  D -->|det ≠ 0| E["Hitung invers B = inv(A)"]
+  D -->|det = 0| Z["Print "Matriks tidak dapat diinverskan""]
+  E --> F["Inisialisasi x0, e, eigen_lama, iterasi"]
+  F --> G{"e > toleransi?"}
+  G -- Yes --> H["Hitung y = B * x0"]
+  H --> I["Hitung eigen_baru = max(y)"]
+  I --> J["Hitung x = y / eigen_baru"]
+  J --> K["Hitung e = |(eigen_lama - eigen_baru) / eigen_lama|"]
+  K --> L["iterasi += 1"]
+  L --> M["Update eigen_lama = eigen_baru"]
+  M --> Q
+  G -- No --> P["Hitung nilai_eigen = 1 / eigen_baru"]
+  P --> Q["Print Nilai Eigen dan vektor x"]
+  Q --> O([Selesai])
