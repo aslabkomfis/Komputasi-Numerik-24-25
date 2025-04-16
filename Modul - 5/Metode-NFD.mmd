@@ -1,0 +1,19 @@
+flowchart TD
+    A["Mulai Program"] --> B["Inisialisasi data"]
+    B --> C["Input data yang ingin diprediksi (x_input)"]
+    C --> D["Ambil 3 titik data terdekat: xi dan yi"]
+    D --> E["Panggil fungsi newton_forward(x, xi, yi)"]
+    E --> F["Inisialisasi tabel selisih (diff_table)"]
+    F --> G{Loop j dari 1 ke n-1}
+    G --> H{Loop i dari 0 ke n-j}
+    H --> I["Hitung diff_table[i, j] = (diff_table[i+1,j-1] - diff_table[i,j-1]) / (xi[i+j] - xi[i])"]
+    I --> H
+    H --> G
+    G --> J["Inisialisasi result = diff_table[0,0] dan term = 1"]
+    J --> K{Loop j dari 1 ke n-1}
+    K --> L["term *= (x - xi[j-1])"]
+    L --> M["result += term * diff_table[0, j]"]
+    M --> K
+    K --> N["Return result sebagai hasil estimasi"]
+    N --> O["Tampilkan hasil estimasi produksi"]
+    O --> P["Selesai"]
