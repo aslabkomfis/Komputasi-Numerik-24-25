@@ -1,12 +1,12 @@
 flowchart TD
-    A[Mulai Program] --> B[Inisialisasi Data x dan y]
-    B --> C[Input Nilai xp ("nilai yang ingin dihitung")]
+    A[Mulai Program] --> B["Inisialisasi Data x dan y"]
+    B --> C["Input Nilai xp (nilai yang ingin dihitung)"]
     C --> D{Looping untuk setiap Orde 0 sampai n-1}
-    D --> E[Hitung a(x,y,i,0) secara rekursif]
-    E --> F[Hitung N(x,xp,i) = (xp - x0)*(xp - x1)...]
-    F --> G[Hitung polinom += a * N]
-    G --> H[Tampilkan hasil sementara: yp untuk setiap orde]
+    D --> E["Hitung a(x,y,i,0) secara rekursif"]
+    E --> F["Hitung N(x,xp,i) = (xp - x0)*(xp - x1)..."]
+    F --> G["Hitung polinom += a * N"]
+    G --> H["Tampilkan hasil sementara: yp untuk setiap orde"]
     H --> I{Masih ada orde berikutnya?}
     I -- Ya --> D
-    I -- Tidak --> J[Tampilkan hasil akhir: nilai interpolasi]
-    J --> K[Selesai]
+    I -- Tidak --> J["Tampilkan hasil akhir: nilai interpolasi"]
+    J --> K["Selesai"]
