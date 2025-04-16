@@ -1,6 +1,6 @@
 flowchart TD
-    A["Mulai Program"] --> B["Inisialisasi data tahun dan produksi"]
-    B --> C["Input tahun yang ingin diprediksi (tahun_input)"]
+    A["Mulai Program"] --> B["Inisialisasi data "]
+    B --> C["Input data yang ingin diprediksi (x_input)"]
     C --> D["Ambil 3 titik data terdekat xi dan yi"]
     D --> E["Panggil fungsi lagrange_interpolation"]
     E --> F{Loop i dari 0 ke n}
@@ -13,5 +13,5 @@ flowchart TD
     H --> K["Setelah loop j, result += term"]
     K --> F
     F --> L["Return result sebagai nilai estimasi"]
-    L --> M["Tampilkan hasil estimasi produksi padi"]
+    L --> M["Tampilkan hasil estimasi"]
     M --> N["Selesai"]
