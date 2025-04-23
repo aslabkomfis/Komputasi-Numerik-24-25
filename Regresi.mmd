@@ -9,7 +9,7 @@ graph TD
   AA --No --> AC["vander.append(x_), x_ = []"]
   E --> F[" Xt = np.transpose(X)"]
   F --> AAD["M = np.dot(Xt, X)"]
-  AC --> AD["M1 = np.linalg.inv(M)"]
+  AAD --> AD["M1 = np.linalg.inv(M)"]
   AD --> AE["np.transpose(y)"]
   AE --> AF["beta = np.dot(np.dot(M1, Xt), Yt)"]
   AF --> AG["x1 = np.arange(min(x),max(x) + 0.1,0.1)"]
